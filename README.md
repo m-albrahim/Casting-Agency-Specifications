@@ -67,7 +67,7 @@ flask run
 - Note: Inssed ```setup.sh``` file we have a token for each role, you can copy and Decoded at [jwt](https://jwt.io/) to see permission for each token. 
 
 ## Deployment
-The API is deployed on Heroku [project link](https://maimonah.us.auth0.com/).
+The API is deployed on Heroku [project link](https://agencyproject.herokuapp.com/).
 
 ## Endpoints
 - GET '/movies'
@@ -87,26 +87,21 @@ GET '/movies'
 - Returns: A JSON with list of movies objects, success value.
 
 ```bash
-curl --location --request GET 'https://maimonah.us.auth0.com/movies' \
+curl --location --request GET 'https://agencyproject.herokuapp.com/movies' \
 --header 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IndsOWwwdGpKUlJYRG5fZnBnZ2pLSSJ9.eyJpc3MiOiJodHRwczovL21haW1vbmFoLnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw1ZWU2N2EyYTcwODQxYjBhOTVkNmZkN2QiLCJhdWQiOiJjYXN0aW5nIiwiaWF0IjoxNTk2NDUzNTgyLCJleHAiOjE1OTY1Mzk5ODIsImF6cCI6IlJ1eEhrUUI3dGEwdW9YS2lmTWRnYTRoT1FqTFYwRnUxIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJnZXQ6YWN0b3JzIiwiZ2V0Om1vdmllcyJdfQ.pUm62aCUDJ5x_nHuMRGa-v6Ce3PtkcvKMMfPq5fpCrBxvkQpkraH7q0sp4MdexSr17SmYwhvhtk3H828UAf2YwmNBIcHx1CNt1c_iT7dFxQnAN8JASKBdoVjNF29-vlWTIPBb2bOpTG1YiSHAsCXirwLj3N47d09N_vSOpNrSrQSxgK6GDxc3CUqQfBSrzj2mSpj3S1nfn6ex00jEacMobaKvz-R8KEZQ8AHo0WEPeCUfZEqq3TAcGPUpiI_MR2gKMf9-vVOudpfHehnymeslLZvXL_Cp7wI_EvtWl-GOpnPrpmWYEKzEBU6UM1Ljzo2gj7pJ4E6yz8-FpVq4Zh2SQ'
 ```
 ```bash
 {
     "movies": [
         {
-            "id": 8,
-            "release date": "Thu, 21 Dec 2023 12:00:00 GMT",
-            "title": "First Man"
+            "id": 1,
+            "release_date": "Mon, 06 Apr 2020 14:42:24 GMT",
+            "title": "First man"
         },
         {
-            "id": 9,
-            "release date": "Thu, 21 Dec 2023 12:00:00 GMT",
-            "title": "9th Man"
-        },
-        {
-            "id": 12,
-            "release date": "Thu, 21 Dec 2023 12:00:00 GMT",
-            "title": "Big man"
+            "id": 2,
+            "release_date": "Thu, 06 Apr 2023 14:42:24 GMT",
+            "title": "After"
         }
     ],
     "success": true
@@ -119,23 +114,23 @@ GET '/actors'
 - Authentication: the roles that can acess are Casting Assistant, Casting Director and Executive Producer
 - Returns: A JSON with list of actors objects, success value.
 ```bash
-curl --location --request GET 'https://maimonah.us.auth0.com/actors' \
+curl --location --request GET 'https://agencyproject.herokuapp.com/actors' \
 --header 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IndsOWwwdGpKUlJYRG5fZnBnZ2pLSSJ9.eyJpc3MiOiJodHRwczovL21haW1vbmFoLnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw1ZWU2N2EyYTcwODQxYjBhOTVkNmZkN2QiLCJhdWQiOiJjYXN0aW5nIiwiaWF0IjoxNTk2NDUzNTgyLCJleHAiOjE1OTY1Mzk5ODIsImF6cCI6IlJ1eEhrUUI3dGEwdW9YS2lmTWRnYTRoT1FqTFYwRnUxIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJnZXQ6YWN0b3JzIiwiZ2V0Om1vdmllcyJdfQ.pUm62aCUDJ5x_nHuMRGa-v6Ce3PtkcvKMMfPq5fpCrBxvkQpkraH7q0sp4MdexSr17SmYwhvhtk3H828UAf2YwmNBIcHx1CNt1c_iT7dFxQnAN8JASKBdoVjNF29-vlWTIPBb2bOpTG1YiSHAsCXirwLj3N47d09N_vSOpNrSrQSxgK6GDxc3CUqQfBSrzj2mSpj3S1nfn6ex00jEacMobaKvz-R8KEZQ8AHo0WEPeCUfZEqq3TAcGPUpiI_MR2gKMf9-vVOudpfHehnymeslLZvXL_Cp7wI_EvtWl-GOpnPrpmWYEKzEBU6UM1Ljzo2gj7pJ4E6yz8-FpVq4Zh2SQ'
 ```
 ```bash
 {
     "actors": [
         {
-            "age": 21,
-            "gender": "Female",
-            "id": 6,
-            "name": "21 Women"
+            "age": 26,
+            "gender": "f",
+            "id": 1,
+            "name": "Jemera"
         },
         {
-            "age": 21,
-            "gender": "Male",
-            "id": 12,
-            "name": "12 man"
+            "age": 40,
+            "gender": "m",
+            "id": 2,
+            "name": "Ali"
         }
     ],
     "success": true
@@ -148,15 +143,16 @@ POST '/movies'
 - Authentication: Only the executive Executive Producer
 - Returns : A JSON with success value and the id of the posted movie
 ```bash
-curl --location --request POST 'https://maimonah.us.auth0.com/movies' \
+curl --location --request POST 'https://agencyproject.herokuapp.com/movies' \
 --header 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IndsOWwwdGpKUlJYRG5fZnBnZ2pLSSJ9.eyJpc3MiOiJodHRwczovL21haW1vbmFoLnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw1ZWU2N2EyYTcwODQxYjBhOTVkNmZkN2QiLCJhdWQiOiJjYXN0aW5nIiwiaWF0IjoxNTk2NDUzMzY5LCJleHAiOjE1OTY1Mzk3NjksImF6cCI6IlJ1eEhrUUI3dGEwdW9YS2lmTWRnYTRoT1FqTFYwRnUxIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6YWN0b3JzIiwiZGVsZXRlOm1vdmllcyIsImdldDphY3RvcnMiLCJnZXQ6bW92aWVzIiwicGF0Y2g6YWN0b3JzIiwicGF0Y2g6bW92aWVzIiwicG9zdDphY3RvcnMiLCJwb3N0Om1vdmllcyJdfQ.jfasPF9HbbtZ_P2TyxFKfBNiWWgIBEmWIPJj0JSr_7rOGueJNmeuILQXJhleLlqsUVQMuza-TuahUyS-QX_f3edp5V-RjT2w45VtzCiZFn37CopB6L76imT6g9TVRZkj2shmorM8dyIQ9zg945E96Eg1s7iLbuRbQKDLgCb6F_5AXQeAPsIr3DmP2fnJ03IRrw7YjA0uADTwpt4H2snMHQDKOtTtcmj0Jx5pq1GcfTACTH7l0KLE9Byr6GCGcARP-HYnZu9I0xDhafrcaf6HHDEwJgRZfMSSopcCOmcWtwM9mUBoYk9-yAlf0rovkPdo0KnyfZl18nwnVRN6Qsxt4Q' \
 --header 'Content-Type: application/json' \
 --data-raw '{ "title":"Man-1", "release_date": "12-21-23 12:00 pm"}'
 ```
 ```bash
 {
-    "movie id": 13,
-    "success": true
+    "created": 1,
+    "success": true,
+    "total_movies": 1
 }
 ```
 POST '/actors'
@@ -166,7 +162,7 @@ POST '/actors'
 - Authentication: Casting Director and  Executive Producer 
 - Returns : A JSON with success value and the id of the posted actor
 ```bash
-curl --location --request POST 'https://maimonah.us.auth0.com/actors' \
+curl --location --request POST 'https://agencyproject.herokuapp.com/actors' \
 --header 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IndsOWwwdGpKUlJYRG5fZnBnZ2pLSSJ9.eyJpc3MiOiJodHRwczovL21haW1vbmFoLnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw1ZWU2N2EyYTcwODQxYjBhOTVkNmZkN2QiLCJhdWQiOiJjYXN0aW5nIiwiaWF0IjoxNTk2NDUzMzY5LCJleHAiOjE1OTY1Mzk3NjksImF6cCI6IlJ1eEhrUUI3dGEwdW9YS2lmTWRnYTRoT1FqTFYwRnUxIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6YWN0b3JzIiwiZGVsZXRlOm1vdmllcyIsImdldDphY3RvcnMiLCJnZXQ6bW92aWVzIiwicGF0Y2g6YWN0b3JzIiwicGF0Y2g6bW92aWVzIiwicG9zdDphY3RvcnMiLCJwb3N0Om1vdmllcyJdfQ.jfasPF9HbbtZ_P2TyxFKfBNiWWgIBEmWIPJj0JSr_7rOGueJNmeuILQXJhleLlqsUVQMuza-TuahUyS-QX_f3edp5V-RjT2w45VtzCiZFn37CopB6L76imT6g9TVRZkj2shmorM8dyIQ9zg945E96Eg1s7iLbuRbQKDLgCb6F_5AXQeAPsIr3DmP2fnJ03IRrw7YjA0uADTwpt4H2snMHQDKOtTtcmj0Jx5pq1GcfTACTH7l0KLE9Byr6GCGcARP-HYnZu9I0xDhafrcaf6HHDEwJgRZfMSSopcCOmcWtwM9mUBoYk9-yAlf0rovkPdo0KnyfZl18nwnVRN6Qsxt4Q' \
 --header 'Content-Type: application/json' \
 --data-raw '{"name":"Lazaro Neto","age": 21,
@@ -174,8 +170,9 @@ curl --location --request POST 'https://maimonah.us.auth0.com/actors' \
 ```
 ```
 {
-    "actor id": 13,
-    "success": true
+    "created": 1,
+    "success": true,
+    "total_actors": 1
 }
 ```
 PATCH '/movies/<int:movie_id>'
@@ -184,15 +181,16 @@ PATCH '/movies/<int:movie_id>'
 - Authentication: Casting Director and  Executive Producer 
 - Returns : A JSON with success value and the id of the updated movie
 ```bash
-curl --location --request PATCH 'https://maimonah.us.auth0.com/movies/2' \
+curl --location --request PATCH 'https://agencyproject.herokuapp.com/movies/2' \
 --header 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IndsOWwwdGpKUlJYRG5fZnBnZ2pLSSJ9.eyJpc3MiOiJodHRwczovL21haW1vbmFoLnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw1ZWU2N2EyYTcwODQxYjBhOTVkNmZkN2QiLCJhdWQiOiJjYXN0aW5nIiwiaWF0IjoxNTk2NDUzMzY5LCJleHAiOjE1OTY1Mzk3NjksImF6cCI6IlJ1eEhrUUI3dGEwdW9YS2lmTWRnYTRoT1FqTFYwRnUxIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6YWN0b3JzIiwiZGVsZXRlOm1vdmllcyIsImdldDphY3RvcnMiLCJnZXQ6bW92aWVzIiwicGF0Y2g6YWN0b3JzIiwicGF0Y2g6bW92aWVzIiwicG9zdDphY3RvcnMiLCJwb3N0Om1vdmllcyJdfQ.jfasPF9HbbtZ_P2TyxFKfBNiWWgIBEmWIPJj0JSr_7rOGueJNmeuILQXJhleLlqsUVQMuza-TuahUyS-QX_f3edp5V-RjT2w45VtzCiZFn37CopB6L76imT6g9TVRZkj2shmorM8dyIQ9zg945E96Eg1s7iLbuRbQKDLgCb6F_5AXQeAPsIr3DmP2fnJ03IRrw7YjA0uADTwpt4H2snMHQDKOtTtcmj0Jx5pq1GcfTACTH7l0KLE9Byr6GCGcARP-HYnZu9I0xDhafrcaf6HHDEwJgRZfMSSopcCOmcWtwM9mUBoYk9-yAlf0rovkPdo0KnyfZl18nwnVRN6Qsxt4Q' \
 --header 'Content-Type: application/json' \
 --data-raw '{ "title":"The Movie", "release_date": "12-21-25 12:00 pm"}'
 ```
 ```
 {
-    "movie_id": 2,
-    "success": true
+    "success": true,
+    "total_movies": 2,
+    "updated": 1
 }
 ```
 PATCH '/actors/<int:actor_id>'
@@ -202,7 +200,7 @@ PATCH '/actors/<int:actor_id>'
 - Authentication: Casting Director and  Executive Producer 
 - Returns : A JSON with success value and the id of the updated actor
 ```bash
-curl --location --request PATCH 'https://maimonah.us.auth0.com/actors/2' \
+curl --location --request PATCH 'https://agencyproject.herokuapp.com/actors/2' \
 --header 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IndsOWwwdGpKUlJYRG5fZnBnZ2pLSSJ9.eyJpc3MiOiJodHRwczovL21haW1vbmFoLnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw1ZWU2N2EyYTcwODQxYjBhOTVkNmZkN2QiLCJhdWQiOiJjYXN0aW5nIiwiaWF0IjoxNTk2NDUzMzY5LCJleHAiOjE1OTY1Mzk3NjksImF6cCI6IlJ1eEhrUUI3dGEwdW9YS2lmTWRnYTRoT1FqTFYwRnUxIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6YWN0b3JzIiwiZGVsZXRlOm1vdmllcyIsImdldDphY3RvcnMiLCJnZXQ6bW92aWVzIiwicGF0Y2g6YWN0b3JzIiwicGF0Y2g6bW92aWVzIiwicG9zdDphY3RvcnMiLCJwb3N0Om1vdmllcyJdfQ.jfasPF9HbbtZ_P2TyxFKfBNiWWgIBEmWIPJj0JSr_7rOGueJNmeuILQXJhleLlqsUVQMuza-TuahUyS-QX_f3edp5V-RjT2w45VtzCiZFn37CopB6L76imT6g9TVRZkj2shmorM8dyIQ9zg945E96Eg1s7iLbuRbQKDLgCb6F_5AXQeAPsIr3DmP2fnJ03IRrw7YjA0uADTwpt4H2snMHQDKOtTtcmj0Jx5pq1GcfTACTH7l0KLE9Byr6GCGcARP-HYnZu9I0xDhafrcaf6HHDEwJgRZfMSSopcCOmcWtwM9mUBoYk9-yAlf0rovkPdo0KnyfZl18nwnVRN6Qsxt4Q' \
 --header 'Content-Type: application/json' \
 --data-raw '{"name":"Alex Jordan","age": 21,
@@ -210,8 +208,9 @@ curl --location --request PATCH 'https://maimonah.us.auth0.com/actors/2' \
 ```
 ```
 {
-    "actor id": 2,
-    "success": true
+    "success": true,
+    "total_actors": 2,
+    "updated": 1
 }
 ```
 
@@ -220,14 +219,15 @@ DELETE '/movies/<int:movie_id>'
 - Request Arguments: id of the movie eg:'/movies/1'
 - Returns: A JSON with success value and the id of the deleted movie
 ```bash
-curl --location --request DELETE 'https://maimonah.us.auth0.com/movies/2' \
+curl --location --request DELETE 'https://agencyproject.herokuapp.com/movies/3' \
 --header 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IndsOWwwdGpKUlJYRG5fZnBnZ2pLSSJ9.eyJpc3MiOiJodHRwczovL21haW1vbmFoLnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw1ZWU2N2EyYTcwODQxYjBhOTVkNmZkN2QiLCJhdWQiOiJjYXN0aW5nIiwiaWF0IjoxNTk2NDUzMzY5LCJleHAiOjE1OTY1Mzk3NjksImF6cCI6IlJ1eEhrUUI3dGEwdW9YS2lmTWRnYTRoT1FqTFYwRnUxIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6YWN0b3JzIiwiZGVsZXRlOm1vdmllcyIsImdldDphY3RvcnMiLCJnZXQ6bW92aWVzIiwicGF0Y2g6YWN0b3JzIiwicGF0Y2g6bW92aWVzIiwicG9zdDphY3RvcnMiLCJwb3N0Om1vdmllcyJdfQ.jfasPF9HbbtZ_P2TyxFKfBNiWWgIBEmWIPJj0JSr_7rOGueJNmeuILQXJhleLlqsUVQMuza-TuahUyS-QX_f3edp5V-RjT2w45VtzCiZFn37CopB6L76imT6g9TVRZkj2shmorM8dyIQ9zg945E96Eg1s7iLbuRbQKDLgCb6F_5AXQeAPsIr3DmP2fnJ03IRrw7YjA0uADTwpt4H2snMHQDKOtTtcmj0Jx5pq1GcfTACTH7l0KLE9Byr6GCGcARP-HYnZu9I0xDhafrcaf6HHDEwJgRZfMSSopcCOmcWtwM9mUBoYk9-yAlf0rovkPdo0KnyfZl18nwnVRN6Qsxt4Q' \
 --data-raw ''
 ```
 ```
 {
-    "id": 2,
-    "success": true
+    "deleted": 2,
+    "success": true,
+    "total_movies": 1
 }
 ```
 DELETE '/actors/<int:actor_id>'
@@ -235,14 +235,15 @@ DELETE '/actors/<int:actor_id>'
 - Request Arguments: id of the actor eg:'/actors/1'
 - Returns: A JSON with success value and the id of the deleted actror 
 ```bash
-curl --location --request DELETE 'https://maimonah.us.auth0.com/actors/12' \
+curl --location --request DELETE 'https://agencyproject.herokuapp.com/actors/3' \
 --header 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IndsOWwwdGpKUlJYRG5fZnBnZ2pLSSJ9.eyJpc3MiOiJodHRwczovL21haW1vbmFoLnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw1ZWU2N2EyYTcwODQxYjBhOTVkNmZkN2QiLCJhdWQiOiJjYXN0aW5nIiwiaWF0IjoxNTk2NDUzMzY5LCJleHAiOjE1OTY1Mzk3NjksImF6cCI6IlJ1eEhrUUI3dGEwdW9YS2lmTWRnYTRoT1FqTFYwRnUxIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6YWN0b3JzIiwiZGVsZXRlOm1vdmllcyIsImdldDphY3RvcnMiLCJnZXQ6bW92aWVzIiwicGF0Y2g6YWN0b3JzIiwicGF0Y2g6bW92aWVzIiwicG9zdDphY3RvcnMiLCJwb3N0Om1vdmllcyJdfQ.jfasPF9HbbtZ_P2TyxFKfBNiWWgIBEmWIPJj0JSr_7rOGueJNmeuILQXJhleLlqsUVQMuza-TuahUyS-QX_f3edp5V-RjT2w45VtzCiZFn37CopB6L76imT6g9TVRZkj2shmorM8dyIQ9zg945E96Eg1s7iLbuRbQKDLgCb6F_5AXQeAPsIr3DmP2fnJ03IRrw7YjA0uADTwpt4H2snMHQDKOtTtcmj0Jx5pq1GcfTACTH7l0KLE9Byr6GCGcARP-HYnZu9I0xDhafrcaf6HHDEwJgRZfMSSopcCOmcWtwM9mUBoYk9-yAlf0rovkPdo0KnyfZl18nwnVRN6Qsxt4Q' \
 --data-raw ''
 ```
 ```
 {
-    "id": 12,
-    "success": true
+    "deleted": 1,
+    "success": true,
+    "total_actors": 1
 }
 ```
 
