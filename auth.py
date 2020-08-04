@@ -1,6 +1,5 @@
 import json
 import os, ssl
-import sys
 from flask import request, _request_ctx_stack, abort
 from functools import wraps
 from jose import jwt
