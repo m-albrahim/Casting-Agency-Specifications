@@ -16,8 +16,9 @@ class CastingAgencyTestCase(unittest.TestCase):
         self.app = create_app()
         self.client = self.app.test_client
         self.database_name = "agency_test"
-        self.database_path = "postgres://{}/{}".format('localhost:5432', self.database_name)
-        
+        self.database_path = "postgres://{}/{}".format(
+            'localhost:5432', self.database_name)
+
         self.assistant = {'Content-Type': 'application/json',
                           'Authorization': ASSISTENT_TOKEN}
         self.director = {'Content-Type': 'application/json',
@@ -50,7 +51,7 @@ class CastingAgencyTestCase(unittest.TestCase):
 
     def test_get_movies(self):
         movie = Movie(title='The Last Man Standing',
-                       release_date='12-21-23 12:00 pm')
+                      release_date='12-21-23 12:00 pm')
         movie.insert()
         response = self.client().get('/movies', headers=self.assistant)
         data = json.loads(response.data)
@@ -71,7 +72,7 @@ class CastingAgencyTestCase(unittest.TestCase):
 
     def test_get_actors(self):
         actor = Actor(name='Elsa Montanha',
-                       age=21, gender='Female')
+                      age=21, gender='Female')
         actor.insert()
         response = self.client().get('/actors', headers=self.assistant)
         data = json.loads(response.data)
@@ -83,19 +84,17 @@ class CastingAgencyTestCase(unittest.TestCase):
         data = json.loads(response.data)
         self.assertEqual(response.status_code, 401)
 
-
-
     def test_401_delete_actor(self):
         response = self.client().delete('/actors/1', headers=self.assistant)
         data = json.loads(response.data)
         self.assertEqual(response.status_code, 401)
 
     def test_401_add_movie(self):
-        response = self.client().post('/movies', headers=self.assistant,
-                                      json={'title': 'My ex', 'release_date': '12-21-23 12:00 pm'})
+        response = self.client()
+        .post('/movies', headers=self.assistant,
+              json={'title': 'My ex', 'release_date': '12-21-23 12:00 pm'})
         data = json.loads(response.data)
         self.assertEqual(response.status_code, 401)
-
 
     def test_401_add_actor(self):
         response = self.client().post('/actors', headers=self.assistant,
@@ -105,17 +104,20 @@ class CastingAgencyTestCase(unittest.TestCase):
         self.assertEqual(response.status_code, 401)
 
     def test_401_update_movie(self):
-        response = self.client().patch('/movies/1', headers=self.assistant,
-                                       json={'title': 'The last ship', 'release_date': '12-21-23 12:00 pm'})
+        response = self.client()
+        .patch('/movies/1', headers=self.assistant,
+               json={'title': 'The last ship',
+                     'release_date': '12-21-23 12:00 pm'})
         data = json.loads(response.data)
         self.assertEqual(response.status_code, 401)
 
     def test_400_update_movie(self):
         movie = Movie(title='The Last Man Standing',
-                       release_date='12-21-23 12:00 pm')
+                      release_date='12-21-23 12:00 pm')
         movie.insert()
         movie_id = movie.id
-        response = self.client().patch('/movies/'+str(movie_id)+'', headers=self.director)
+        response = self.client()
+        .patch('/movies/'+str(movie_id)+'', headers=self.director)
 
         data = json.loads(response.data)
         self.assertEqual(response.status_code, 422)
@@ -123,12 +125,14 @@ class CastingAgencyTestCase(unittest.TestCase):
 
     def test_update_movie(self):
         movie = Movie(title='The Last Man Standing',
-                       release_date='12-21-23 12:00 pm')
+                      release_date='12-21-23 12:00 pm')
         movie.insert()
         movie_id = movie.id
 
-        response = self.client().patch('/movies/'+str(movie_id) + '', headers=self.director,
-                                       json={'title': 'The last ship', 'release_date': '12-21-23 12:00 pm'})
+        response = self.client()
+        .patch('/movies/'+str(movie_id) + '', headers=self.director,
+               json={'title': 'The last ship',
+                     'release_date': '12-21-23 12:00 pm'})
         data = json.loads(response.data)
         self.assertEqual(response.status_code, 200)
         self.assertEqual(data['success'], True)
@@ -144,7 +148,8 @@ class CastingAgencyTestCase(unittest.TestCase):
         actor = Actor(name='Elsa Montanha', age=21, gender='Female')
         actor.insert()
         actor_id = actor.id
-        response = self.client().patch('/actors/'+str(actor_id)+'', headers=self.director)
+        response = self.client()
+        .patch('/actors/'+str(actor_id)+'', headers=self.director)
         data = json.loads(response.data)
         self.assertEqual(response.status_code, 422)
         self.assertEqual(data['success'], False)
@@ -153,11 +158,13 @@ class CastingAgencyTestCase(unittest.TestCase):
         actor = Actor(name='Elsa Montanha', age=21, gender='Female')
         actor.insert()
         actor_id = actor.id
-        response = self.client().patch('/actors/'+str(actor_id)+'', headers=self.director,
-                                       json={'name': 'Onnys Menete',
-                                             'age': 21, 'gender': 'Male'})
+        response = self.client()
+        .patch('/actors/'+str(actor_id)+'', headers=self.director,
+               json={'name': 'Onnys Menete',
+                     'age': 21, 'gender': 'Male'})
         data = json.loads(response.data)
         self.assertEqual(response.status_code, 200)
+
 
 # Make the tests conveniently executable
 if __name__ == "__main__":
