@@ -1,18 +1,20 @@
 import json
-import os, ssl
+import os
+import ssl
 from flask import request, _request_ctx_stack, abort
 from functools import wraps
 from jose import jwt
 from urllib.request import urlopen
 from flask import session
 
-if (not os.environ.get('PYTHONHTTPSVERIFY', '') and getattr(ssl, '_create_unverified_context', None)):
+if (not os.environ.get('PYTHONHTTPSVERIFY', '')
+        and getattr(ssl, '_create_unverified_context', None)):
     ssl._create_default_https_context = ssl._create_unverified_context
 
 
-AUTH0_DOMAIN = 'maimonah.us.auth0.com'
-ALGORITHMS = ['RS256']
-API_AUDIENCE = 'casting'
+AUTH0_DOMAIN = os.environ['AUTH0_DOMAIN']
+ALGORITHMS = os.environ['ALGORITHMS']
+API_AUDIENCE = os.environ['API_AUDIENCE']
 
 
 # AuthError Exception
